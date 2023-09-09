@@ -23,4 +23,5 @@ def photo_detail_view(request, pk):
     return render(request, 'photos/photo_detail.html', context)
 
 def add_photo_view(request):
-    return render(request, 'photos/photo_create.html')
+    categories = Category.objects.all()
+    return render(request, 'photos/photo_create.html', context={'categories': categories,})
