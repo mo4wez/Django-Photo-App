@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     # third-party apps
     'allauth',
     'allauth.account',
+    'crispy_forms',
+    'crispy_bootstrap5',
 
     # local apps
     'accounts.apps.AccountsConfig',
@@ -157,3 +159,7 @@ ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
+
+# cryspy forms config
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
