@@ -21,32 +21,39 @@
                       Category
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">An item</li>
+                        {% for categori in categories %}
+                            <li class="list-group-item">{{categori.name}}</li>
+                        {% endfor %}
                         <a href="{% url 'photos:add_photo' %}" class="btn btn-dark btn-block btn-sm m-1">Add Photo</a>
                     </ul>
                 </div>
             </div>
+            
             <div class="col-md-9">
                 <div class="row">
+                    {% for photo in photos %}
                     <div class="col-md-4">
                         <div class="card my-2">
                             <img 
                             class="image-thumbail"
-                            src="https://www.thefamouspeople.com/profiles/images/albert-camus-13.jpg"
+                            src="{{photo.image.url}}"
                             alt="...">
                             <div class="card-body">
-                              <small class="card-text">
-                                Category:
-                              </small>
+                                <strong>
+                                    {{photo.title}}
+                                </strong>
+                                <br>
+                                <small class="card-text">
+                                    Category: {{photo.category}}
+                                </small>
                             </div>
-                            <a href="{% url 'photos:photo_detail' 3 %}" type="button" class="btn btn-outline-dark btn-sm m-1">View</a>
-                        </div>   
+                            <a href="{{photo.get_absolute_url}}" type="button" class="btn btn-outline-dark btn-sm m-1">View</a>
+                        </div>
                     </div>
-
+                    {% endfor %}
                 </div>
             </div>
+
         </div>
     </div>
 </body>

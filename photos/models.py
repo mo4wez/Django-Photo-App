@@ -23,6 +23,6 @@ class Photo(models.Model):
         return self.title
     
     def get_absolute_url(self):
-        return reverse("photo_detail", kwargs={"pk": self.pk})
+        return reverse("photos:photo_detail", kwargs={"pk": self.pk})
 
     

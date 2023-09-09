@@ -1,11 +1,26 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, get_object_or_404
+
+from .models import Category, Photo
 
 
 def photo_list_view(request):
-    return render(request, 'photos/photo_list.html')
+    categories = Category.objects.all()
+    photos = Photo.objects.all()
+
+    context = {
+        'categories': categories,
+        'photos': photos,
+    }
+
+    return render(request, 'photos/photo_list.html', context)
 
 def photo_detail_view(request, pk):
-    return render(request, 'photos/photo_detail.html')
+    photo = get_object_or_404(Photo, pk=pk)
+    context = {
+        'photo': photo
+    }
+
+    return render(request, 'photos/photo_detail.html', context)
 
 def add_photo_view(request):
     return render(request, 'photos/photo_create.html')
