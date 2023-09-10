@@ -38,4 +38,4 @@ def add_photo_view(request):
             photo_add_obj.user = request.user
             photo_add_obj.save()
 
-    return render(request, 'photos/photo_create.html', context={'categories': categories, 'form':PhotoAddForm()})
+    return render(request, 'photos/photo_create.html', context={'categories': categories, 'form': photo_add_form})
