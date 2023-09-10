@@ -16,7 +16,7 @@ class Category(models.Model):
 class Photo(models.Model):
     title = models.CharField(max_length=120)
     description = models.TextField()
-    image = models.ImageField(upload_to='images/', null=True, blank=True)
+    image = models.ImageField(upload_to='images/',)
     category = models.ForeignKey(to=Category, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
